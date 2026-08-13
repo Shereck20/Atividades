@@ -1,0 +1,16 @@
+{
+  "name": "EcomMove",
+  "version": "1.0.0",
+  "description": "Sistema EcoMove com Node.js, Express e PostgreSQL",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  }
+}
