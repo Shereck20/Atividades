@@ -1,28 +1,10 @@
-# ☕ CoffeeHouse
 
-Sistema web completo para gerenciamento de pedidos em uma cafeteria, com integração entre front-end, back-end e banco de dados PostgreSQL.
-
----
-
-## 🚀 Funcionalidades
-
-- 📋 Listagem de produtos por categoria (Café, Lanches, Sobremesas)
-- 🛒 Realização de pedidos
-- ❌ Remoção de pedidos
-- 💬 Avaliação de produtos (comentário + nota)
-- 🔐 Sistema de login com nome e senha
-- 📊 Resumo de pedidos (quantidade e valor total)
-- 📄 Paginação de produtos
-- 🎨 Interface moderna com modal e interação dinâmica
-
----
-
-## 🧱 Tecnologias utilizadas
+## Tecnologias utilizadas
 
 ### Front-end
-- HTML5
-- CSS3
-- JavaScript (DOM e Fetch API)
+- HTML
+- CSS
+- JavaScript
 
 ### Back-end
 - Node.js
@@ -31,69 +13,53 @@ Sistema web completo para gerenciamento de pedidos em uma cafeteria, com integra
 ### Banco de dados
 - PostgreSQL
 
----
-
-## 📁 Estrutura do Projeto
-coffee-house/
+## Estrutura do Projeto
+ecomove/
 ├── db/
 │ └── connection.js
 ├── services/
-│ ├── produtoService.js
-│ ├── pedidoService.js
-│ ├── avaliacaoService.js
-│ └── usuarioService.js
+│ ├── atividade.js
+│ ├── usuarios.js
 ├── routes/
-│ ├── produtos.js
-│ ├── pedidos.js
-│ ├── avaliacoes.js
+│ ├── atividade.js
 │ └── usuarios.js
 ├── public/
-│ ├── index.html
-│ ├── style.css
-│ ├── script.js
-│ ├── Instagram.svg
-│ ├── Twitter.svg
-│ └── TikTok.svg
+│  └──assets/
+│    ├── index.html
+│    ├── style.css
+│    └── script.js
 ├── database.sql
 ├── app.js
 ├── package.json
-└── .env
+├── .env
+└── .gitignore
 
 
----
-
-## ⚙️ Como executar o projeto
+## Como executar o projeto
 
 ### 1. Clone ou baixe o projeto
 
 ```bash
-git clone <url-do-repositorio>
-2. Instale as dependências
+1. Instale as dependências
 npm install
-3. Configure o banco de dados
+2. Configure o banco de dados
 
 Crie o banco no PostgreSQL:
 
-CREATE DATABASE coffee_house;
-
 Execute o arquivo:
-
 database.sql
-4. Configure o .env
+
+3. Configure o .env
 PORT=3000
 
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
-DB_PASSWORD=123456
-DB_DATABASE=coffee_house
+DB_PASSWORD=senai
+DB_DATABASE=ecomove
 5. Execute o projeto
 npm run dev
 
 Acesse no navegador:
 
 http://localhost:3000
-🔐 Login para teste
-Usuário: admin  
-Senha: 123456
-
