@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(animalRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Servidor do ZOO rodando na porta: ${PORT}...`)
+    console.log(`Servidor do ZOO rodando na porta: http://localhost:${PORT}...`)
 });
 
 

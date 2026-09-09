@@ -37,7 +37,7 @@ export const animalService = {
         return await animalRepository.patch(id, animalRequisicao)
     },
 
-    async deleteAnimal(id){
+    async deleteAnimal(id, animalRequisicao){
         const animalExistente = await animalRepository.findById(id);
         if(!animalExistente){
             throw new Error("Animal não encontrado");
