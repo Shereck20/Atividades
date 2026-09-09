@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>EcoMove</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="app">
+        <!--aside-->
+        <aside class="sidebar">
+            <div class="profile-card">
+                <img id="company-logo" class="avatar" src="" alt="Logo EcoMove">
+                <h1>EcoMove</h1>
+            </div>
+            <div class="stats">
+                <div>
+                    <strong id="total-activities">0</strong>
+                    <span>Qtd. Atividades</span>
+                </div>
+                <div>
+                    <strong id="total-co2">0</strong>
+                    <span>Qtd. CO2 (kg)</span>
+                </div>
+            </div>
+
+            <button id="activity-tab" class="activity-tab" disabled>Atividade</button>
+
+            <footer class="sidebar-footer">
+                <h2>EcoMove</h2>
+                <div class="sociais">
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">TikTok</a>
+                </div>
+                <span>© Copyright-2024</span>
+            </footer>
+        </aside>
+
+        <!--main-->
+        <main class="content">
+            <header class="topbar">
+                <button id="login-button" class="btn-dark">Login</button>
+            </header>
+
+            <nav id="filters" class="filters">
+                <button data-type="bicicleta">Bicicleta</button>
+                <button data-type="transporte_publico">Transporte Público</button>
+                <button data-type="caminhada">Caminhada</button>
+            </nav>
+
+            <section id="activity-form-section" class="activity-form hidden">
+                <h2>Crie sua atividade</h2>
+
+            <div class="form-grid">
+                <div>
+                    <label for="activity-type">Tipo de Atividade</label>
+                    <select id="activity-type">
+                        <option value="">Selecione</option>
+                        <option value="bicicleta">Bicicleta</option>
+                        <option value="transporte_publico">Transporte Público</option>
+                        <option value="caminhada">Caminhada</option>
+                    </select>
+                    <small class="error" id="erroe-type"></small>
+                </div>
+
+                <div>
+                    <label for="activity-distance">Distância (km)</label>
+                    <input type="number" id="activity-distance" placeholder="Ex: 5.2">
+                    <small class="error" id="error-distance"></small>
+                </div>
+
+                <div>
+                    <label for="activity-duraction">Duração (min)</label>
+                    <input type="number" id="activity-duraction" placeholder="Ex: 30">
+                    <small class="error" id="error-duraction"></small>
+                </div>
+
+                <button id="create-activity" class="btn-dark">Criar Atividade</button>
+            </div>
+            </section>
+        </main>
+
+    </div>
+    
+</body>
+</html>
