@@ -182,4 +182,131 @@ body{
     padding: 8px;
 }
 
+.activity-card{
+    border: 1px solid #9A9A9A;
+}
+
+.activity-header{
+    display: flexbox;
+    justify-content: space-between;
+    padding: 8px 12px;
+}
+
+.activity-title{
+    margin: 0;
+}
+
+.activity-body{
+    grid: 90px 1fr 140px;
+    gap: 10px;
+    padding: 8px;
+    align-items: center;
+}
+
+.activity-avatar{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.metrics{
+    display: flexbox;
+    gap: 24px;
+}
+
+.metrics p{
+    margin: 6px 0 0;
+}
+
+.metrics span{
+    display: block;
+    font-size: 28px;
+}
+
+.actions{
+    justify-content: end;
+    grid: repeat(4, auto);
+    align-items: center;
+    gap: 6px;
+    font-size: 28px;
+}
+
+.like-btn, .comment-btn{
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.like-btn.liked{
+    color: #FF0000;
+}
+
+.content-box{
+    border-top: 1px solid #999;
+    padding: 8px;
+    display: flexbox;
+    gap: 8px;
+    align-items: center;
+}
+
+.content-box input{
+    flex: 1;
+    padding: 10px;
+}
+
+.content-box button{
+    padding: 10px 14px;
+}
+
+.modal{
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box{
+    background: var(--white);
+    width: 350px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modal-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #999;
+}
+
+.modal-head button{
+    background: transparent;
+    border: 0;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-actions{
+    display: flex;
+    justify-content: end;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.error{
+    color: var(--danger);
+    min-height: 16px;
+}
+
+.invalid{
+    border: 1px solid var(--danger) !important;
+}
+
 .hidden { display: none !important; }
