@@ -14,8 +14,19 @@ async function createUser(name, email, password_hash) {
 }
 
 async function findById(id) {
-  const { rows } = await db.query("SELECT id, name, email FROM users WHERE id = $1", [id]);
+  const { rows } = await db.query(
+    "SELECT id, name, email, created_at FROM users WHERE id = $1",
+    [id]
+  );
   return rows[0];
 }
 
-module.exports = { findByEmail, createUser, findById };
+// Lista todos os usuários sem retornar hashes de senha.
+async function findAll() {
+  const { rows } = await db.query(
+    "SELECT id, name, email, created_at FROM users ORDER BY id"
+  );
+  return rows;
+}
+
+module.exports = { findByEmail, createUser, findById, findAll };

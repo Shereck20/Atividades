@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curadoria JWT - Usuários</title>
+</head>
+<body>
+  <h1>Usuários cadastrados</h1>
+  <button type="button" onclick="carregar_dados()">Atualizar listagem</button>
+  <p id="mensagem">Carregando usuários...</p>
+  <div id="listagem"></div>
+
+  <script>
+    const API = 'http://localhost:3001/users';
+
+    async function carregar_dados() {
+      const mensagem = document.getElementById('mensagem');
+      const listagem = document.getElementById('listagem');
+      mensagem.textContent = 'Carregando usuários...';
+      listagem.replaceChildren();
+
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          throw new Error('Faça login primeiro na página login.html.');
+        }
+
+        const resposta = await fetch(API, {
+          method: 'GET',
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        const texto = await resposta.text();
+        let resultado;
+        try {
+          resultado = texto ? JSON.parse(texto) : null;
+        } catch {
+          throw new Error('A API retornou uma resposta que não é JSON válido.');
+        }
+
+        if (!resposta.ok) {
+          throw new Error(resultado?.message || `Erro HTTP ${resposta.status}`);
+        }
+
+        if (!Array.isArray(resultado)) {
+          throw new Error('A API não retornou uma lista de usuários.');
+        }
+
+        if (resultado.length === 0) {
+          mensagem.textContent = 'Nenhum usuário cadastrado.';
+          return;
+        }
+
+        resultado.forEach((usuario, indice) => {
+          const secao = document.createElement('section');
+          const titulo = document.createElement('h2');
+          titulo.textContent = `Usuário ${indice + 1}`;
+          secao.appendChild(titulo);
+
+          Object.entries(usuario).forEach(([campo, valor]) => {
+            const linha = document.createElement('p');
+            linha.textContent = `${campo}: ${valor ?? '-'}`;
+            secao.appendChild(linha);
+          });
+
+          secao.appendChild(document.createElement('hr'));
+          listagem.appendChild(secao);
+        });
+
+        mensagem.textContent = `${resultado.length} usuário(s) encontrado(s).`;
+      } catch (erro) {
+        mensagem.textContent = erro.message;
+        console.error('Erro ao carregar usuários:', erro);
+      }
+    }
+
+    carregar_dados();
+  </script>
+</body>
+</html>
